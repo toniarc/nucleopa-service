@@ -15,6 +15,10 @@
 	
 	<modules>
 		<module>nucleopa-client</module>
+		<module>nucleopa-domain</module>
+		<module>nucleopa-jpa-adapter</module>
+		<module>nucleopa-rest-adapter</module>
+		<module>nucleopa-application</module>
 	</modules>
 
 	<dependencies>

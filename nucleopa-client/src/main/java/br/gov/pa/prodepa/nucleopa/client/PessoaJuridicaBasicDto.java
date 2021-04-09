@@ -1,16 +1,27 @@
 package br.gov.pa.prodepa.nucleopa.client;
 
+import java.io.Serializable;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
 @Getter
 @Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @ToString
-public class PessoaJuridicaBasicDto {
+public class PessoaJuridicaBasicDto implements Serializable {
 
+	private static final long serialVersionUID = 261327948537493013L;
+	
 	private Long id;
 	private String nome;
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
