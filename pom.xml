@@ -13,6 +13,14 @@
 		<version>2.4.3</version>
 	</parent>
 	
+	<distributionManagement>
+		<repository>
+			<id>prodepa</id>
+			<name>prodepa</name>
+			<url>http://nexus-corporativo.apps.desenvolver.prodepa.pa.gov.br/nexus/content/repositories/prodepa</url>
+		</repository>
+	</distributionManagement>
+	
 	<modules>
 		<module>nucleopa-client</module>
 		<module>nucleopa-domain</module>
