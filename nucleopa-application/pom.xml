@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>br.gov.pa.prodepa</groupId>
 		<artifactId>nucleopa-service</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>1.0</version>
 	</parent>
 	<artifactId>nucleopa-application</artifactId>
 	
@@ -17,17 +17,17 @@
 		<dependency>
 			<groupId>br.gov.pa.prodepa</groupId>
 			<artifactId>nucleopa-domain</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>${project.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>br.gov.pa.prodepa</groupId>
 			<artifactId>nucleopa-jpa-adapter</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>${project.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>br.gov.pa.prodepa</groupId>
 			<artifactId>nucleopa-rest-adapter</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>${project.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
