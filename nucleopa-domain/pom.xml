@@ -12,7 +12,7 @@
 		<dependency>
 			<groupId>br.gov.pa.prodepa.pae-common</groupId>
 			<artifactId>pae-common-domain</artifactId>
-			<version>0.0.1-springboot-2.4.2</version>
+			<version>${version.pae.common}</version>
 		</dependency>
 	</dependencies>
 </project>
