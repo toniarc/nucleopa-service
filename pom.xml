@@ -35,4 +35,17 @@
 			<artifactId>lombok</artifactId>
 		</dependency>
 	</dependencies>
+	
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>11</source>  <!-- same as <java.version> -->
+					<target>11</target>    <!-- same as <java.version> -->
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>
