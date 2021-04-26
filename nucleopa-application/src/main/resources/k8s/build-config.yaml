@@ -1,0 +1,41 @@
+apiVersion: v1
+kind: BuildConfig
+metadata:
+  labels:
+    app: nucleopa-service
+  name: nucleopa-service
+  namespace: corporativo
+spec:
+  output:
+    to:
+      kind: ImageStreamTag
+      name: nucleopa-service:latest
+  postCommit: {}
+  resources: {}
+  runPolicy: Serial
+  source:
+    git:
+      ref: master
+      uri: https://github.com/toniarc/nucleopa-service.git
+    type: Git
+  strategy:
+    sourceStrategy:
+      env:
+      - name: MAVEN_MIRROR_URL
+        value: http://nexus.corporativo.svc.cluster.local:8081/nexus/content/groups/public
+      - name: ARTIFACT_DIR
+        value: nucleopa-application/target
+      from:
+        kind: ImageStreamTag
+        name: openjdk-11:latest
+    type: Source
+  successfulBuildsHistoryLimit: 5
+  triggers:
+  - generic:
+      secret: "my-nucleopa-secret-123"
+      allowEnv: true
+    type: Generic
+  - type: ConfigChange
+  - imageChange:
+      lastTriggeredImageID: registry.access.redhat.com/ubi8/openjdk-11
+    type: ImageChange

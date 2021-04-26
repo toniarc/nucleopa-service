@@ -1,0 +1,25 @@
+# Deploy to openshift
+
+# Create secrets and configMaps (web-console)
+
+# Login and set project
+$ oc login
+$ oc project corporativo
+
+#Import image (this step is required only once for namespace, if image already registered skip this step)
+oc import-image ubi8/openjdk-11 --from=registry.access.redhat.com/ubi8/openjdk-11 --confirm
+
+# Create a image stream
+oc apply -f nucleopa-application/src/main/resources/k8s/image-stream.yaml
+
+# Create a build config
+oc apply -f nucleopa-application/src/main/resources/k8s/build-config.yaml
+
+# Create a deployment config
+oc apply -f nucleopa-application/src/main/resources/k8s/deployment-config.yaml
+
+# Create a service
+oc apply -f nucleopa-application/src/main/resources/k8s/service.yaml
+
+# Create a route
+oc apply -f nucleopa-application/src/main/resources/k8s/route.yaml

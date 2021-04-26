@@ -1,0 +1,74 @@
+apiVersion: apps.openshift.io/v1
+kind: DeploymentConfig
+metadata:
+  labels:
+    app: nucleopa-service
+  name: nucleopa-service
+  namespace: corporativo
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    deploymentconfig: nucleopa-service
+  strategy:
+    activeDeadlineSeconds: 21600
+    resources: {}
+    rollingParams:
+      intervalSeconds: 1
+      maxSurge: 25%
+      maxUnavailable: 25%
+      timeoutSeconds: 600
+      updatePeriodSeconds: 1
+    type: Rolling
+  template:
+    metadata:
+      labels:
+        deploymentconfig: nucleopa-service
+    spec:
+      containers:
+      - env:
+        - name: NUCLEOPA_DATABASE_USER
+          valueFrom:
+            secretKeyRef:
+              key: NUCLEOPA_DATABASE_USER
+              name: nucleopa-service-secret
+        - name: NUCLEOPA_DATABASE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: NUCLEOPA_DATABASE_PASSWORD
+              name: nucleopa-service-secret
+        - name: NUCLEOPA_DATABASE_HOST
+          valueFrom:
+            configMapKeyRef:
+              key: NUCLEOPA_DATABASE_HOST
+              name: nucleopa-service-config
+        image: docker-registry.default.svc:5000/corporativo/nucleopa-service
+        imagePullPolicy: Always
+        name: nucleopa-service
+        ports:
+        - containerPort: 8085
+          protocol: TCP
+        - containerPort: 8443
+          protocol: TCP
+        - containerPort: 8778
+          protocol: TCP
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+  test: false
+  triggers:
+  - imageChangeParams:
+      automatic: true
+      containerNames:
+      - nucleopa-service
+      from:
+        kind: ImageStreamTag
+        name: nucleopa-service:latest
+        namespace: corporativo
+    type: ImageChange
+  - type: ConfigChange

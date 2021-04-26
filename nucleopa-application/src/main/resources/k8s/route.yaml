@@ -1,0 +1,16 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  labels:
+    app: nucleopa-service
+  name: nucleopa-service
+  namespace: corporativo
+spec:
+  host: nucleopa-service-corporativo.apps.desenvolver.prodepa.pa.gov.br
+  port:
+    targetPort: 8085-tcp
+  to:
+    kind: Service
+    name: nucleopa-service
+    weight: 100
+  wildcardPolicy: None
