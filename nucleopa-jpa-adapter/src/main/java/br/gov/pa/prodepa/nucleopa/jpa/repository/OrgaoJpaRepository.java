@@ -18,7 +18,17 @@ public interface OrgaoJpaRepository extends JpaRepository<Orgao, Long>{
 			+ " join o.pessoaJuridica pj "
 			+ " join pj.pessoa p "
 			+ " where p.id in (:ids) "
-			+ " and p.ehOrgao = true ")
+			+ " and p.ehOrgao = true "
+			+ " order by o.sigla ")
 	List<OrgaoBasicDto> buscarOrgaoBasicoDtoPorIds(Set<Long> ids);
+
+	@Query(" select new br.gov.pa.prodepa.nucleopa.domain.dto.OrgaoBasicDto(p.id, p.nome, o.sigla) "
+			+ " from Orgao o "
+			+ " join o.pessoaJuridica pj "
+			+ " join pj.pessoa p "
+			+ " where o.ativo = true "
+			+ " and   p.ehOrgao = true"
+			+ " order by o.sigla ")
+	List<OrgaoBasicDto> buscarOrgaoTodosOrgaosAtivos();
 
 }

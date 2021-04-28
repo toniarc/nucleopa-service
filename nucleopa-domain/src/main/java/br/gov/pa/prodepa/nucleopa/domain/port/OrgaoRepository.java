@@ -9,4 +9,6 @@ public interface OrgaoRepository {
 
 	List<OrgaoBasicDto> buscarOrgaoBasicoDtoPorIds(Set<Long> ids);
 
+	List<OrgaoBasicDto> buscarOrgaoTodosOrgaosAtivos();
+
 }

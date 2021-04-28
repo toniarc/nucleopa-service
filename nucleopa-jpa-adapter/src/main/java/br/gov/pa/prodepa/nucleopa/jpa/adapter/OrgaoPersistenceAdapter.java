@@ -26,4 +26,9 @@ public class OrgaoPersistenceAdapter implements OrgaoRepository{
 		return repository.buscarOrgaoBasicoDtoPorIds(ids);
 	}
 
+	@Override
+	public List<OrgaoBasicDto> buscarOrgaoTodosOrgaosAtivos() {
+		return repository.buscarOrgaoTodosOrgaosAtivos();
+	}
+
 }

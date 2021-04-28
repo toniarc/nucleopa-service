@@ -28,4 +28,9 @@ public class OrgaoController {
 	public List<OrgaoBasicDto> buscarOrgaoBasicoDtoPorId(@RequestParam(value="ids", required = true) Set<Long> ids) {
 		return service.buscarOrgaoBasicoDtoPorId(ids);
 	}
+	
+	@GetMapping("/formato-basico/todos-orgaos-ativos")
+	public List<OrgaoBasicDto> buscarOrgaoTodosOrgaosAtivos() {
+		return service.buscarOrgaoTodosOrgaosAtivos();
+	}
 }

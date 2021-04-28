@@ -19,4 +19,9 @@ public class OrgaoDomainService implements OrgaoService {
 	public List<OrgaoBasicDto> buscarOrgaoBasicoDtoPorId(Set<Long> ids) {
 		return repository.buscarOrgaoBasicoDtoPorIds(ids);
 	}
+
+	@Override
+	public List<OrgaoBasicDto> buscarOrgaoTodosOrgaosAtivos() {
+		return repository.buscarOrgaoTodosOrgaosAtivos();
+	}
 }

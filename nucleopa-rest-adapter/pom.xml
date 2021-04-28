@@ -22,7 +22,7 @@
 		<dependency>
 			<groupId>br.gov.pa.prodepa.pae-common</groupId>
 			<artifactId>pae-common-rest</artifactId>
-			<version>${version.pae.common}</version>
+			<version>${version.pae.common.rest.client}</version>
 		</dependency>
 	</dependencies>
 </project>

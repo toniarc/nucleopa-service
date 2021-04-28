@@ -14,7 +14,8 @@
 	</parent>
 	
 	<properties>
-		<version.pae.common>1.0</version.pae.common>
+		<version.pae.common.domain>1.0</version.pae.common.domain>
+		<version.pae.common.rest.client>1.0</version.pae.common.rest.client>
 	</properties>
 	
 	<distributionManagement>
@@ -26,7 +27,6 @@
 	</distributionManagement>
 	
 	<modules>
-		<module>nucleopa-client</module>
 		<module>nucleopa-domain</module>
 		<module>nucleopa-jpa-adapter</module>
 		<module>nucleopa-rest-adapter</module>
