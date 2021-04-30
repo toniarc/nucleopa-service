@@ -20,4 +20,30 @@ public interface MunicipioJpaRepository extends JpaRepository<Municipio, Long>{
 			+ " where m.id in (:ids) ")
 	List<MunicipioBasicDto> buscarMunicipioBasicoDtoPorIds(@Param("ids") Set<Long> ids);
 
+	@Query(" select new br.gov.pa.prodepa.nucleopa.domain.dto.MunicipioBasicDto(m.id, m.descricao, m.codigoIbge, e.id, e.descricao, e.uf, e.codigoIbge) "
+			+ " from Municipio m "
+			+ " join m.estado e "
+			+ " where e.id = :estadoId "
+			+ " order by m.descricao ")
+	List<MunicipioBasicDto> buscarMunicipioBasicoDtoPorEstado(@Param("estadoId") Long id);
+
+	@Query(" select new br.gov.pa.prodepa.nucleopa.domain.dto.MunicipioBasicDto(m.id, m.descricao, m.codigoIbge, e.id, e.descricao, e.uf, e.codigoIbge) "
+			+ " from Municipio m "
+			+ " join m.estado e "
+			+ " where m.codigoIbge = :codigo ")
+	MunicipioBasicDto buscarPorCodigoIbge(@Param("codigo") String codigo);
+	
+	@Query(" select new br.gov.pa.prodepa.nucleopa.domain.dto.MunicipioBasicDto(m.id, m.descricao, m.codigoIbge, e.id, e.descricao, e.uf, e.codigoIbge) "
+			+ " from Municipio m "
+			+ " join m.estado e "
+			+ " where m.id = :id ")
+	MunicipioBasicDto buscarPorId(@Param("id") Long id);
+
+	@Query(" select new br.gov.pa.prodepa.nucleopa.domain.dto.MunicipioBasicDto(m.id, m.descricao, m.codigoIbge, e.id, e.descricao, e.uf, e.codigoIbge) "
+			+ " from Municipio m "
+			+ " join m.estado e "
+			+ " where e.codigoIbge = :codigo "
+			+ " order by m.descricao ")
+	List<MunicipioBasicDto> buscarPorCodigoIbgeDoEstado(@Param("codigo") String codigo);
+
 }

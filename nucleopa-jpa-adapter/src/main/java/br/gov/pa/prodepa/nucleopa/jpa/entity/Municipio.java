@@ -45,7 +45,7 @@ public class Municipio {
 
 	@ManyToOne
 	@JoinColumn(name = "id_estado", nullable = false)
-	private Estado estado;
+	private EstadoEntity estado;
 
 	@Enumerated
 	@Column(nullable = false, columnDefinition = "TINYINT")

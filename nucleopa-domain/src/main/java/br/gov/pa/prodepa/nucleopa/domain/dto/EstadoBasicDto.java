@@ -8,17 +8,17 @@ import lombok.Setter;
 public class EstadoBasicDto {
 
 	private Long id;
-	private String descricao;
+	private String nome;
 	private String uf;
 	private String codigoIbge;
 	
 	public EstadoBasicDto() {
 	}
 
-	public EstadoBasicDto(Long id, String descricao, String uf, String codigoIbge) {
+	public EstadoBasicDto(Long id, String nome, String uf, String codigoIbge) {
 		super();
 		this.id = id;
-		this.descricao = descricao;
+		this.nome = nome;
 		this.uf = uf;
 		this.codigoIbge = codigoIbge;
 	}

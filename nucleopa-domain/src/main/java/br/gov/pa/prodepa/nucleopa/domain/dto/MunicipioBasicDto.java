@@ -8,19 +8,19 @@ import lombok.Setter;
 public class MunicipioBasicDto {
 
 	private Long id;
-	private String descricao;
+	private String nome;
 	private String codigoIbge;
 	private EstadoBasicDto estado;
 	
 	public MunicipioBasicDto() {
 	}
 
-	public MunicipioBasicDto(Long id, String descricao, String codigoIbge, Long estadoId, String estadoDescricao, String estadoUf, String estadoCodigoIbge) {
+	public MunicipioBasicDto(Long id, String nome, String codigoIbge, Long estadoId, String estadoNome, String estadoUf, String estadoCodigoIbge) {
 		super();
 		this.id = id;
-		this.descricao = descricao;
+		this.nome = nome;
 		this.codigoIbge = codigoIbge;
-		this.estado = new EstadoBasicDto(estadoId, estadoDescricao, estadoUf, estadoCodigoIbge);
+		this.estado = new EstadoBasicDto(estadoId, estadoNome, estadoUf, estadoCodigoIbge);
 	}
 
 	@Override

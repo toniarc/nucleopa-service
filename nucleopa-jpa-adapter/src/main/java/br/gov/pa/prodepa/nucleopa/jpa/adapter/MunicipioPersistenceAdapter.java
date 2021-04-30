@@ -25,5 +25,25 @@ public class MunicipioPersistenceAdapter implements MunicipioRepository{
 	public List<MunicipioBasicDto> buscarMunicipioBasicoDtoPorIds(Set<Long> ids) {
 		return repository.buscarMunicipioBasicoDtoPorIds(ids);
 	}
+
+	@Override
+	public MunicipioBasicDto buscarPorCodigoIbge(String codigo) {
+		return repository.buscarPorCodigoIbge(codigo);
+	}
+
+	@Override
+	public MunicipioBasicDto buscarPorId(Long id) {
+		return repository.buscarPorId(id);
+	}
+
+	@Override
+	public List<MunicipioBasicDto> buscarPorEstadoId(Long id) {
+		return repository.buscarMunicipioBasicoDtoPorEstado(id);
+	}
+
+	@Override
+	public List<MunicipioBasicDto> buscarPorCodigoIbgeDoEstado(String codigo) {
+		return repository.buscarPorCodigoIbgeDoEstado(codigo);
+	}
 	
 }

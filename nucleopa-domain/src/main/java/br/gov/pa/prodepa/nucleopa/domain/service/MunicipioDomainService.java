@@ -17,10 +17,30 @@ public class MunicipioDomainService implements MunicipioService {
 		this.repository = repository;
 	}
 
+	@Override
+	public MunicipioBasicDto buscarPorCodigoIbge(String codigo) {
+		return repository.buscarPorCodigoIbge(codigo);
+	}
+	
+	@Override
+	public MunicipioBasicDto buscarPorId(Long id) {
+		return repository.buscarPorId(id);
+	}
+	
+	@Override
+	public List<MunicipioBasicDto> buscarPorEstadoId(Long id) {
+		return repository.buscarPorEstadoId(id);
+	}
+	
 	public List<MunicipioBasicDto> buscarMunicipiosBasicoDtoPorId(Set<Long> ids) {
 		List<MunicipioBasicDto> list = repository.buscarMunicipioBasicoDtoPorIds(ids);
 		checkIfAllExists(ids, list, (e, id) -> e.getId().equals(id));
 		return list;
+	}
+	
+	@Override
+	public List<MunicipioBasicDto> buscarPorCodigoIbgeDoEstado(String codigo) {
+		return repository.buscarPorCodigoIbgeDoEstado(codigo);
 	}
 	
 	private <T> void checkIfAllExists(Set<Long> ids, List<T> list, BiPredicate<T, Long> predicate) {
@@ -35,4 +55,5 @@ public class MunicipioDomainService implements MunicipioService {
 		
 		de.throwException();
 	}
+
 }

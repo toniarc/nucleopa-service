@@ -25,7 +25,7 @@ import lombok.Setter;
 @Entity
 @Table(name = "estado", schema = "nucleopa")
 @SequenceGenerator(name = "sg_estado", sequenceName = "sq_estado", allocationSize = 1, initialValue = 1)
-public class Estado {
+public class EstadoEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sg_estado")
@@ -81,7 +81,7 @@ public class Estado {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Estado other = (Estado) obj;
+		EstadoEntity other = (EstadoEntity) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;

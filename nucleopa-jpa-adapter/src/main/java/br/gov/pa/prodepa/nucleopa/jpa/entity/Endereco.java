@@ -51,7 +51,7 @@ public class Endereco {
 
 	@ManyToOne
 	@JoinColumn(name = "id_estado")
-	private Estado estado;
+	private EstadoEntity estado;
 
 	@ManyToOne
 	@JoinColumn(name = "id_municipio")

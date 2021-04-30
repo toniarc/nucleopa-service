@@ -5,10 +5,13 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
+import br.gov.pa.prodepa.nucleopa.domain.port.EstadoRepository;
 import br.gov.pa.prodepa.nucleopa.domain.port.MunicipioRepository;
 import br.gov.pa.prodepa.nucleopa.domain.port.OrgaoRepository;
 import br.gov.pa.prodepa.nucleopa.domain.port.PessoaFisicaRepository;
 import br.gov.pa.prodepa.nucleopa.domain.port.PessoaJuridicaRepository;
+import br.gov.pa.prodepa.nucleopa.domain.service.EstadoDomainService;
+import br.gov.pa.prodepa.nucleopa.domain.service.EstadoService;
 import br.gov.pa.prodepa.nucleopa.domain.service.MunicipioDomainService;
 import br.gov.pa.prodepa.nucleopa.domain.service.MunicipioService;
 import br.gov.pa.prodepa.nucleopa.domain.service.OrgaoDomainService;
@@ -42,5 +45,10 @@ public class DomainRegistry {
 	@Bean
 	public MunicipioService createMunicipioService() {
 		return new MunicipioDomainService(context.getBean(MunicipioRepository.class));
+	}
+	
+	@Bean
+	public EstadoService createEstadoService() {
+		return new EstadoDomainService(context.getBean(EstadoRepository.class));
 	}
 }

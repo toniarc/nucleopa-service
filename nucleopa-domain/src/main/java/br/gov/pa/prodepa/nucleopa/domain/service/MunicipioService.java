@@ -9,4 +9,12 @@ public interface MunicipioService {
 
 	List<MunicipioBasicDto> buscarMunicipiosBasicoDtoPorId(Set<Long> ids);
 
+	MunicipioBasicDto buscarPorId(Long id);
+
+	MunicipioBasicDto buscarPorCodigoIbge(String codigo);
+
+	List<MunicipioBasicDto> buscarPorEstadoId(Long id);
+
+	List<MunicipioBasicDto> buscarPorCodigoIbgeDoEstado(String codigo);
+
 }
