@@ -10,6 +10,7 @@ public class OrgaoBasicDto {
 	private Long id;
 	private String nome;
 	private String sigla;
+	private String cnpj;
 
 	public OrgaoBasicDto() {
 	}
@@ -18,7 +19,13 @@ public class OrgaoBasicDto {
 		this.id = id;
 		this.nome = nome;
 		this.sigla = sigla;
-		
+	}
+	
+	public OrgaoBasicDto(Long id, String nome, String sigla, String cnpj) {
+		this.id = id;
+		this.nome = nome;
+		this.sigla = sigla;
+		this.cnpj = cnpj;
 	}
 
 	@Override

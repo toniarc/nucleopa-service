@@ -13,7 +13,7 @@ import br.gov.pa.prodepa.nucleopa.jpa.entity.Orgao;
 @Repository
 public interface OrgaoJpaRepository extends JpaRepository<Orgao, Long>{
 
-	@Query(" select new br.gov.pa.prodepa.nucleopa.domain.dto.OrgaoBasicDto(p.id, p.nome, o.sigla) "
+	@Query(" select new br.gov.pa.prodepa.nucleopa.domain.dto.OrgaoBasicDto(p.id, pj.nomeFantasia, o.sigla, pj.cnpj) "
 			+ " from Orgao o "
 			+ " join o.pessoaJuridica pj "
 			+ " join pj.pessoa p "
@@ -22,7 +22,7 @@ public interface OrgaoJpaRepository extends JpaRepository<Orgao, Long>{
 			+ " order by o.sigla ")
 	List<OrgaoBasicDto> buscarOrgaoBasicoDtoPorIds(Set<Long> ids);
 
-	@Query(" select new br.gov.pa.prodepa.nucleopa.domain.dto.OrgaoBasicDto(p.id, p.nome, o.sigla) "
+	@Query(" select new br.gov.pa.prodepa.nucleopa.domain.dto.OrgaoBasicDto(p.id, pj.nomeFantasia, o.sigla, pj.cnpj) "
 			+ " from Orgao o "
 			+ " join o.pessoaJuridica pj "
 			+ " join pj.pessoa p "
