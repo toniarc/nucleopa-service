@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.function.BiPredicate;
 
+import br.gov.pa.prodepa.nucleopa.domain.dto.ConsultaPaginaDto;
 import br.gov.pa.prodepa.nucleopa.domain.dto.PessoaJuridicaBasicDto;
 import br.gov.pa.prodepa.nucleopa.domain.port.PessoaJuridicaRepository;
 import br.gov.pa.prodepa.pae.common.domain.exception.DomainException;
@@ -17,6 +18,25 @@ public class PessoaJuridicaDomainService implements PessoaJuridicaService {
 		this.repository = repository;
 	}
 
+	@Override
+	public ConsultaPaginaDto<PessoaJuridicaBasicDto> buscarPessoaJuridicaBasicoDtoPorNomeOuCnpj(String nome, String cnpj, int pageNumber, int pageSize) {
+		
+		if( (nome == null || nome.trim().length() == 0) &&
+				(cnpj == null || cnpj.trim().length() == 0)) {
+			throw new DomainException("Informe o nome e/ou o cpf.");
+		}
+		
+		if(cnpj != null && cnpj.length() != 14) {
+			throw new DomainException("O cnpj deve conter 14 digitos");
+		}
+		
+		if(nome != null && nome.length() < 3) {
+			throw new DomainException("O nome deve conter no mínimo 3 letras");
+		}
+		
+		return repository.buscarPessoaJuridicaBasicoDtoPorNomeOuCpf(nome, cnpj, pageNumber, pageSize);
+	}
+	
 	@Override
 	public List<PessoaJuridicaBasicDto> buscarPessoaJuridicaBasicoDtoPorId(Set<Long> ids) {
 		List<PessoaJuridicaBasicDto> list = repository.buscarPessoaJuridicaBasicoDtoPorIds(ids);

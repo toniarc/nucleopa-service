@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.gov.pa.prodepa.nucleopa.domain.dto.ConsultaPaginaDto;
 import br.gov.pa.prodepa.nucleopa.domain.dto.PessoaFisicaBasicDto;
 import br.gov.pa.prodepa.nucleopa.domain.service.PessoaFisicaService;
 
@@ -32,5 +33,14 @@ public class PessoaFisicaController {
 	@GetMapping("/formato-basico")
 	public List<PessoaFisicaBasicDto> buscarPessoaFisicaBasicoDtoPorId(@RequestParam(value="ids", required = true) Set<Long> ids) {
 		return service.buscarPessoaFisicaBasicoDtoPorId(ids);
+	}
+	
+	@GetMapping("/formato-basico/filtrar-por-nome-ou-cpf")
+	public ConsultaPaginaDto<PessoaFisicaBasicDto> buscarPessoaFisicaBasicoDtoPorNomeOuCpf(
+			@RequestParam(value="nome", required = false) String nome, 
+			@RequestParam(value="cpf", required = false) String cpf, 
+			@RequestParam(value="pageNumber", required = true) Integer pageNumber, 
+			@RequestParam(value="pageSize", required = true) Integer pageSize){
+		return service.buscarPessoaFisicaBasicoDtoPorNomeOuCpf(nome, cpf, pageNumber, pageSize);
 	}
 }

@@ -23,7 +23,7 @@ public class OrgaoController {
 		super();
 		this.service = service;
 	}
-
+	
 	@GetMapping("/formato-basico")
 	public List<OrgaoBasicDto> buscarOrgaoBasicoDtoPorId(@RequestParam(value="ids", required = true) Set<Long> ids) {
 		return service.buscarOrgaoBasicoDtoPorId(ids);

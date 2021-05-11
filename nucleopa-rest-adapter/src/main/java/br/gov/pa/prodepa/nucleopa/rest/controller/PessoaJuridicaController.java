@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.gov.pa.prodepa.nucleopa.domain.dto.ConsultaPaginaDto;
 import br.gov.pa.prodepa.nucleopa.domain.dto.PessoaJuridicaBasicDto;
 import br.gov.pa.prodepa.nucleopa.domain.service.PessoaJuridicaService;
 
@@ -32,5 +33,10 @@ public class PessoaJuridicaController {
 	@GetMapping("/formato-basico")
 	public List<PessoaJuridicaBasicDto> buscarPessoaJuridicaBasicoDtoPorId(@RequestParam(value="ids", required = true) Set<Long> ids) {
 		return service.buscarPessoaJuridicaBasicoDtoPorId(ids);
+	}
+	
+	@GetMapping("/formato-basico/filtrar-por-nome-ou-cnpj")
+	public ConsultaPaginaDto<PessoaJuridicaBasicDto> buscarPessoaFisicaBasicoDtoPorNomeOuCpf(String nome, String cnpj, int pageNumber, int pageSize){
+		return service.buscarPessoaJuridicaBasicoDtoPorNomeOuCnpj(nome, cnpj, pageNumber, pageSize);
 	}
 }
