@@ -15,6 +15,7 @@ import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.Type;
 
+import br.gov.pa.prodepa.nucleopa.domain.model.TipoAdministracao;
 import lombok.Getter;
 import lombok.Setter;
 

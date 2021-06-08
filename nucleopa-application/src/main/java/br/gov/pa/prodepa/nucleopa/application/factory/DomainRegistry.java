@@ -10,6 +10,7 @@ import br.gov.pa.prodepa.nucleopa.domain.port.MunicipioRepository;
 import br.gov.pa.prodepa.nucleopa.domain.port.OrgaoRepository;
 import br.gov.pa.prodepa.nucleopa.domain.port.PessoaFisicaRepository;
 import br.gov.pa.prodepa.nucleopa.domain.port.PessoaJuridicaRepository;
+import br.gov.pa.prodepa.nucleopa.domain.port.ValidationUtils;
 import br.gov.pa.prodepa.nucleopa.domain.service.EstadoDomainService;
 import br.gov.pa.prodepa.nucleopa.domain.service.EstadoService;
 import br.gov.pa.prodepa.nucleopa.domain.service.MunicipioDomainService;
@@ -29,7 +30,11 @@ public class DomainRegistry {
 	
 	@Bean
 	public PessoaFisicaService createPessoaFisicaService() {
-		return new PessoaFisicaDomainService(context.getBean(PessoaFisicaRepository.class));
+		return new PessoaFisicaDomainService(
+				context.getBean(PessoaFisicaRepository.class),
+				context.getBean(ValidationUtils.class),
+				context.getBean(EstadoRepository.class),
+				context.getBean(MunicipioRepository.class));
 	}
 	
 	@Bean

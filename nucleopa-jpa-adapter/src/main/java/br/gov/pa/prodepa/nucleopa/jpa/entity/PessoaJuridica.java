@@ -56,7 +56,7 @@ public class PessoaJuridica {
 	@OneToOne
     @JoinColumn(name = "id")
     @MapsId
-    private Pessoa pessoa;
+    private PessoaEntity pessoa;
 
 	@Override
 	public int hashCode() {

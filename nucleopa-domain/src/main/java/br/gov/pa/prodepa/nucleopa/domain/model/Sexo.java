@@ -1,14 +1,14 @@
-package br.gov.pa.prodepa.nucleopa.jpa.entity;
+package br.gov.pa.prodepa.nucleopa.domain.model;
 
-public enum TipoAdministracao {
+public enum Sexo {
 
-	DIRETA  (0, "Administração Direta"),
-	INDIRETA(1, "Administração Indireta");
+	MASCULINO(0, "Masculino"),
+	FEMININO (1, "Feminino");
 
 	private int codigo;
 	private String descricao;
 
-	private TipoAdministracao(int codigo, String descricao) {
+	private Sexo(int codigo, String descricao) {
 		this.codigo = codigo;
 		this.descricao = descricao;
 	}

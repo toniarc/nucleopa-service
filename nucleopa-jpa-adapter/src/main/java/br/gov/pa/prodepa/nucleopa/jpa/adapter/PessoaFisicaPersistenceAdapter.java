@@ -29,4 +29,11 @@ public class PessoaFisicaPersistenceAdapter implements PessoaFisicaRepository {
 		return new ConsultaPaginaDto<PessoaFisicaBasicDto>(pessoas.getTotalPages(), pessoas.getNumberOfElements(), pessoas.getPageable().getPageNumber(), pessoas.getContent());
 	}
 
+	@Override
+	public boolean verificarSeCpfJaEstaCadastrado(Long id, String cpf) {
+		if(id != null) {
+			return repository.countByIdNotAndCpf(id, cpf) > 0;
+		}
+		return repository.countByIdNotAndCpf(-1L, cpf) > 0;
+	}
 }

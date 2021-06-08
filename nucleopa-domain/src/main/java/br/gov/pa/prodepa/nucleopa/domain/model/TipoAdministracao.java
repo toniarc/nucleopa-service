@@ -1,16 +1,14 @@
-package br.gov.pa.prodepa.nucleopa.jpa.entity;
+package br.gov.pa.prodepa.nucleopa.domain.model;
 
-public enum TipoTelefone {
+public enum TipoAdministracao {
 
-	COMERCIAL  (0, "Comercial"),
-	RESIDENCIAL(1, "Residencial"),
-	CELULAR    (2, "Celular"),
-	FAX        (3, "Fax");
+	DIRETA  (0, "Administração Direta"),
+	INDIRETA(1, "Administração Indireta");
 
 	private int codigo;
 	private String descricao;
 
-	private TipoTelefone(int codigo, String descricao) {
+	private TipoAdministracao(int codigo, String descricao) {
 		this.codigo = codigo;
 		this.descricao = descricao;
 	}

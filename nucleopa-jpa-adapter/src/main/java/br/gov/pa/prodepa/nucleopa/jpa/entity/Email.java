@@ -34,7 +34,7 @@ public class Email {
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_pessoa", nullable = false)
-	private Pessoa pessoa;
+	private PessoaEntity pessoa;
 
 	@Column(length = 100, nullable = false)
 	private String email;

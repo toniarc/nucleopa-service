@@ -35,7 +35,7 @@ public class Endereco {
 
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_pessoa", nullable = false)
-	private Pessoa pessoa;
+	private PessoaEntity pessoa;
 
 	@Column(length = 100)
 	private String logradouro;

@@ -8,4 +8,6 @@ public interface EstadoRepository {
 
 	List<EstadoBasicDto> buscarTodosEstados();
 
+	EstadoBasicDto buscarPorId(Long estadoId);
+
 }

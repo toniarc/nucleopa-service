@@ -18,6 +18,7 @@ import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.Type;
 
+import br.gov.pa.prodepa.nucleopa.domain.model.TipoPessoa;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -26,7 +27,7 @@ import lombok.Setter;
 @Entity
 @Table(name = "pessoa", schema = "nucleopa")
 @SequenceGenerator(name = "sg_pessoa", sequenceName = "sq_pessoa", initialValue = 1, allocationSize = 1)
-public class Pessoa {
+public class PessoaEntity {
 
 	@Id
 	@GeneratedValue(generator = "sg_pessoa", strategy = GenerationType.SEQUENCE)
@@ -93,7 +94,7 @@ public class Pessoa {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Pessoa other = (Pessoa) obj;
+		PessoaEntity other = (PessoaEntity) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;

@@ -11,10 +11,10 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import br.gov.pa.prodepa.nucleopa.domain.dto.PessoaFisicaBasicDto;
-import br.gov.pa.prodepa.nucleopa.jpa.entity.PessoaFisica;
+import br.gov.pa.prodepa.nucleopa.jpa.entity.PessoaFisicaEntity;
 
 @Repository
-public interface PessoaFisicaJpaRepository extends JpaRepository<PessoaFisica, Long>{
+public interface PessoaFisicaJpaRepository extends JpaRepository<PessoaFisicaEntity, Long>{
 
 	@Query(" select p.id as id , p.nome as nome, pf.cpf as cpf "
 			+ " from PessoaFisica pf "
@@ -31,5 +31,7 @@ public interface PessoaFisicaJpaRepository extends JpaRepository<PessoaFisica, L
 			+ "order by p.nome ",
 			nativeQuery = true)
 	Page<PessoaFisicaBasicDto> buscarPessoaFisicaBasicoDtoPorNomeOuCpf(@Param("nome") String nome, @Param("cpf") String cpf, Pageable page);
+
+	Long countByIdNotAndCpf(Long id, String cpf);
 
 }

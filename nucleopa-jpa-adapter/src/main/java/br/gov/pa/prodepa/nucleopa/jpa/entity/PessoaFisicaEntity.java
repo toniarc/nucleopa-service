@@ -13,6 +13,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import br.gov.pa.prodepa.nucleopa.domain.model.Sexo;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -20,7 +21,7 @@ import lombok.Setter;
 @Setter
 @Entity
 @Table(name = "pessoa_fisica", schema = "nucleopa")
-public class PessoaFisica {
+public class PessoaFisicaEntity {
 
 	@Id
 	private Long id;
@@ -51,7 +52,7 @@ public class PessoaFisica {
 	@OneToOne
     @JoinColumn(name = "id")
     @MapsId
-    private Pessoa pessoa;
+    private PessoaEntity pessoa;
 
 	@Override
 	public int hashCode() {
@@ -70,7 +71,7 @@ public class PessoaFisica {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		PessoaFisica other = (PessoaFisica) obj;
+		PessoaFisicaEntity other = (PessoaFisicaEntity) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;

@@ -14,5 +14,12 @@
 			<artifactId>pae-common-domain</artifactId>
 			<version>${version.pae.common.domain}</version>
 		</dependency>
+		
+		<dependency>
+			<groupId>org.mapstruct</groupId>
+			<artifactId>mapstruct</artifactId>
+			<version>1.4.1.Final</version>
+		</dependency>
+		
 	</dependencies>
 </project>

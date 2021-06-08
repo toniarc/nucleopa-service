@@ -1,4 +1,4 @@
-package br.gov.pa.prodepa.nucleopa.jpa.entity;
+package br.gov.pa.prodepa.nucleopa.domain.model;
 
 public enum TipoPessoa {
 

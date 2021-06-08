@@ -12,4 +12,6 @@ public interface PessoaFisicaRepository {
 
 	public ConsultaPaginaDto<PessoaFisicaBasicDto> buscarPessoaFisicaBasicoDtoPorNomeOuCpf(String nome, String cpf, int pageNumber, int pageSize);
 
+	boolean verificarSeCpfJaEstaCadastrado(Long id, String cpf);
+
 }

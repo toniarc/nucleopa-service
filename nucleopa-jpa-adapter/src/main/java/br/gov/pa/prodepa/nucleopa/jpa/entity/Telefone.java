@@ -18,6 +18,8 @@ import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.Type;
 
+import br.gov.pa.prodepa.nucleopa.domain.model.TipoTelefone;
+
 @Entity
 @Table(name = "telefone", schema = "nucleopa")
 @SequenceGenerator(name = "sg_telefone", sequenceName = "sq_telefone", initialValue = 1, allocationSize = 1)
@@ -29,7 +31,7 @@ public class Telefone {
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_pessoa", nullable = false)
-	private Pessoa pessoa;
+	private PessoaEntity pessoa;
 
 	@Enumerated
 	@Column(name = "id_tipo_telefone", nullable = false)

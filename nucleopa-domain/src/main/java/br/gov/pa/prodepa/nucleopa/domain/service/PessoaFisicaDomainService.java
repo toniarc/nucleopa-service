@@ -6,17 +6,43 @@ import java.util.function.BiPredicate;
 
 import br.gov.pa.prodepa.nucleopa.domain.dto.ConsultaPaginaDto;
 import br.gov.pa.prodepa.nucleopa.domain.dto.PessoaFisicaBasicDto;
+import br.gov.pa.prodepa.nucleopa.domain.dto.PessoaFisicaRequestDto;
+import br.gov.pa.prodepa.nucleopa.domain.dto.PessoaFisicaResponseDto;
+import br.gov.pa.prodepa.nucleopa.domain.mapper.PessoaFisicaDomainMapper;
+import br.gov.pa.prodepa.nucleopa.domain.model.PessoaFisica;
+import br.gov.pa.prodepa.nucleopa.domain.port.EstadoRepository;
+import br.gov.pa.prodepa.nucleopa.domain.port.MunicipioRepository;
 import br.gov.pa.prodepa.nucleopa.domain.port.PessoaFisicaRepository;
+import br.gov.pa.prodepa.nucleopa.domain.port.ValidationUtils;
+import br.gov.pa.prodepa.nucleopa.validator.PessoaFisicaValidator;
 import br.gov.pa.prodepa.pae.common.domain.exception.DomainException;
+import lombok.RequiredArgsConstructor;
 
-
+@RequiredArgsConstructor
 public class PessoaFisicaDomainService implements PessoaFisicaService {
 
-	private final PessoaFisicaRepository repository;
 	
-	public PessoaFisicaDomainService(PessoaFisicaRepository repository) {
-		super();
-		this.repository = repository;
+	private final PessoaFisicaRepository repository;
+	private final ValidationUtils validationUtils;
+	private final EstadoRepository estadoRepository;
+	private final MunicipioRepository municipioRepository;
+	
+	public PessoaFisicaResponseDto cadastrar(PessoaFisicaRequestDto dto) {
+		PessoaFisicaValidator.getInstance(dto, repository, validationUtils)
+		.validarCamposObrigatorios()
+		.validarSeCpfEValido()
+		.validarFormatoTelefone()
+		.validarFormatoEmail()
+		.validarFormatoCep()
+		.validar()
+		.validarSeCpfJaEstaCadastrado()
+		.checarSeEstadoInformadoExiste(estadoRepository)
+		.chacarSeMunicipioInformadoExiste(municipioRepository)
+		.validar();
+		
+		PessoaFisica pessoaFisica = PessoaFisicaDomainMapper.INSTANCE.map(dto);
+		
+		return null;
 	}
 
 	@Override
