@@ -8,8 +8,6 @@ import br.gov.pa.prodepa.nucleopa.domain.dto.ConsultaPaginaDto;
 import br.gov.pa.prodepa.nucleopa.domain.dto.PessoaFisicaBasicDto;
 import br.gov.pa.prodepa.nucleopa.domain.dto.PessoaFisicaRequestDto;
 import br.gov.pa.prodepa.nucleopa.domain.dto.PessoaFisicaResponseDto;
-import br.gov.pa.prodepa.nucleopa.domain.mapper.PessoaFisicaDomainMapper;
-import br.gov.pa.prodepa.nucleopa.domain.model.PessoaFisica;
 import br.gov.pa.prodepa.nucleopa.domain.port.EstadoRepository;
 import br.gov.pa.prodepa.nucleopa.domain.port.MunicipioRepository;
 import br.gov.pa.prodepa.nucleopa.domain.port.PessoaFisicaRepository;
@@ -40,7 +38,8 @@ public class PessoaFisicaDomainService implements PessoaFisicaService {
 		.chacarSeMunicipioInformadoExiste(municipioRepository)
 		.validar();
 		
-		PessoaFisica pessoaFisica = PessoaFisicaDomainMapper.INSTANCE.map(dto);
+        //PessoaFisica pessoaFisica = PessoaFisicaDomainMapper.INSTANCE.map(dto);
+        //TODO terminar
 		
 		return null;
 	}

@@ -34,7 +34,8 @@ public class DomainRegistry {
 				context.getBean(PessoaFisicaRepository.class),
 				context.getBean(ValidationUtils.class),
 				context.getBean(EstadoRepository.class),
-				context.getBean(MunicipioRepository.class));
+				context.getBean(MunicipioRepository.class)
+			);
 	}
 	
 	@Bean
