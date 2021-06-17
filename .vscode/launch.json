@@ -1,0 +1,22 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Launch NucleopaApplication",
+            "request": "launch",
+            "mainClass": "br.gov.pa.prodepa.nucleopa.NucleopaApplication",
+            "projectName": "nucleopa-application",
+            "vmArgs": "-DNUCLEOPA_DATABASE_HOST=10.1.11.105 -DNUCLEOPA_DATABASE_PASSWORD=p2r0o1d1epa -DNUCLEOPA_DATABASE_USER=corporativo01_nucleopa_apl"
+        }
+    ]
+}
