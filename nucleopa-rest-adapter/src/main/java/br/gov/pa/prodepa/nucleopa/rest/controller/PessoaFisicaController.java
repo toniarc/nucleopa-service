@@ -41,6 +41,7 @@ public class PessoaFisicaController {
 			@RequestParam(value="cpf", required = false) String cpf, 
 			@RequestParam(value="pageNumber", required = true) Integer pageNumber, 
 			@RequestParam(value="pageSize", required = true) Integer pageSize){
-		return service.buscarPessoaFisicaBasicoDtoPorNomeOuCpf(nome, cpf, pageNumber, pageSize);
+		ConsultaPaginaDto<PessoaFisicaBasicDto> buscarPessoaFisicaBasicoDtoPorNomeOuCpf = service.buscarPessoaFisicaBasicoDtoPorNomeOuCpf(nome, cpf, pageNumber, pageSize);
+		return buscarPessoaFisicaBasicoDtoPorNomeOuCpf;
 	}
 }

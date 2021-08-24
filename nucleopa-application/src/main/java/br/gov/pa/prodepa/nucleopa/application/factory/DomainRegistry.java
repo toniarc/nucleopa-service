@@ -3,7 +3,7 @@ package br.gov.pa.prodepa.nucleopa.application.factory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Component;
+import org.springframework.context.annotation.Configuration;
 
 import br.gov.pa.prodepa.nucleopa.domain.port.EstadoRepository;
 import br.gov.pa.prodepa.nucleopa.domain.port.MunicipioRepository;
@@ -22,7 +22,7 @@ import br.gov.pa.prodepa.nucleopa.domain.service.PessoaFisicaService;
 import br.gov.pa.prodepa.nucleopa.domain.service.PessoaJuridicaDomainService;
 import br.gov.pa.prodepa.nucleopa.domain.service.PessoaJuridicaService;
 
-@Component
+@Configuration
 public class DomainRegistry {
 
 	@Autowired
